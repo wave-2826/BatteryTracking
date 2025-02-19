@@ -1,4 +1,5 @@
-echo "Running: git pull"
+@echo off
+echo Running: git pull
 git pull
-echo "Done."
+echo Done.
 pause
