@@ -43,6 +43,12 @@
         <input type="number" min="0"5[] step="any"id="rint" name="rint" required>
         <label for="rint">Ohms</label><br><br>
         <button type="submit">submit</button>
+        <hr> 
+        <button type="button" id="download-csv">Download csv</button>
+        <button type="button" id="download-json">Download json</button>
+        <hr>
+        <label for="import-json">Import JSON:</label>
+        <input type="file" id="import-json" accept="application/json"></input>
         <hr>
         <div id="battery-data-display"></div>
     </form>
@@ -86,7 +92,61 @@
                 display.appendChild(div);
             })
         }
+
         displayData();
+
+        function jsonToCsv(jsonData) {
+            let csv = '';
+
+            // Extract headers
+            const headers = Object.keys(jsonData[0]);
+            csv += headers.join(',') + '\n';
+
+            // Extract values
+            jsonData.forEach(obj => {
+                const values = headers.map(header => obj[header]);
+                csv += values.join(',') + '\n';
+            });
+
+            return csv;
+        }
+
+        document.getElementById('download-csv').addEventListener('click', function() {
+            const csv = jsonToCsv(batteries);
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = csvurl;
+            a.download = 'batteries.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+            a.remove();
+        });
+        document.getElementById('download-json').addEventListener('click', function() {
+            const json = JSON.stringify(batteries, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'batteries.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            a.remove();
+        });
+
+        document.getElementById('import-json').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const jsonData = JSON.parse(e.target.result);
+                    batteries = jsonData;
+                    storage.setItem('batteries', JSON.stringify(batteries));
+                    displayData();
+                };
+                reader.readAsText(file);
+            }
+        });
     </script>
 </body>
 </html>
