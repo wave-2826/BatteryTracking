@@ -3,7 +3,7 @@
     "name": "Battery Tracker",
     "short_name": "Battery Tracker",
     "description": "Log FRC Battery data from a Battery Beak",
-    "start_url": "/",
+    "start_url": "/BatteryTracking/",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
     "orientation": "any",
