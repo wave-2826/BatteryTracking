@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battery Tracking</title>
+    <link rel="manifest" href="/manifest.json">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="/icon512.png">
 </head>
 <body>
     <form>
@@ -25,20 +28,11 @@
         <label for="chargelevel">Charge Level:</label>
         <input type="number" min="0" max="200" id="chargelevel" name="chargelevel" required><br><br>
         <label for="v0">v0:</label>
-        <input type="number" min="0" step="any"id="volt0" name="v0" required>
-        <label for="amp0">@</label>
-        <input type="number" min="0" step="any"id="amp0" name="amp0" required>
-        <label for="amp0">Amp(s)</label><br><br>
+        <input type="number" min="0" step="any"id="volt0" name="v0" required><br><br>
         <label for="v1">v1:</label>
-        <input type="number" min="0" step="any"id="volt1" name="v1" required>
-        <label for="amp1">@</label>
-        <input type="number" min="0" step="any"id="amp1" name="amp1" required>
-        <label for="amp1">Amp(s)</label><br><br>
+        <input type="number" min="0" step="any"id="volt1" name="v1" required><br><br>
         <label for="v2">v2:</label>
-        <input type="number" min="0" step="any"id="volt2" name="v2" required>
-        <label for="amp2">@</label>
-        <input type="number" min="0" step="any"id="amp2" name="amp2" required>
-        <label for="amp2">Amp(s)</label><br><br>
+        <input type="number" min="0" step="any"id="volt2" name="v2" required><br><br>
         <label for="rint">Rint:</label>
         <input type="number" min="0"5[] step="any"id="rint" name="rint" required>
         <label for="rint">Ohms</label><br><br>
@@ -147,6 +141,11 @@
                 reader.readAsText(file);
             }
         });
+    </script>
+    <script>
+        if('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' });
+        }
     </script>
 </body>
 </html>
