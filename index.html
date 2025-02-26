@@ -51,7 +51,7 @@
     <style></style>
     <script src="script.js"></script>
     <script>
-        ('serviceWorker' in navigator) {
+        if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('sw.js', { scope: '/' });
         }
     </script>
