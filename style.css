@@ -7,7 +7,11 @@ p, label {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     background-color: slategray;
+    align-items: center;
+    justify-content: center;
 }
 
 @font-face {
