@@ -23,7 +23,7 @@ input[type="file"] {
     display: none;
 }
 
-#import-json-text {
+#import-json-text, button {
     border: 1px solid #767676;
     display: inline-block;
     padding: 1px 5px;
