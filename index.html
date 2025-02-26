@@ -38,10 +38,10 @@
         <label for="rint">Ohms</label><br><br>
         <button type="submit">submit</button>
         <hr> 
-        <button type="button" id="download-csv">Download csv</button>
-        <button type="button" id="download-json">Download json</button>
+        <button type="button" id="download-csv">Download CSV</button>
+        <button type="button" id="download-json">Download JSON</button>
         <hr>
-        <label for="import-json">Import JSON:</label>
+        <label for="import-json" id="import-json-text">Import JSON</label>
         <input type="file" id="import-json" accept="application/json"></input>
         <hr>
         <button type="button" id="clear-data">Clear data</button>
@@ -51,7 +51,7 @@
     <style></style>
     <script src="script.js"></script>
     <script>
-        if('serviceWorker' in navigator) {
+        ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('sw.js', { scope: '/' });
         }
     </script>

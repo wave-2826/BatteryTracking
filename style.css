@@ -1,0 +1,34 @@
+* {
+    font-family: razer
+}
+
+p, label {
+    color: white;
+}
+
+body {
+    background-color: slategray;
+}
+
+@font-face {
+    font-family: razer;
+    src: url("razeroblique.ttf");
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#import-json-text {
+    border: 1px solid #767676;
+    display: inline-block;
+    padding: 1px 5px;
+    cursor: pointer;
+    background-color: #efefef;
+    font-size: 1em;
+    color: black;
+}
+
+#status {
+    width: 60px;
+}
