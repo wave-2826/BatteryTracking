@@ -92,3 +92,11 @@ document.getElementById('import-json').addEventListener('change', function(event
         reader.readAsText(file);
     }
 });
+
+document.getElementById('clear-data').addEventListener('click', function() {
+    if (confirm('Are you sure you want to clear all data?')) {
+        batteries = [];
+        storage.removeItem('batteries');
+        displayData();
+    }
+});
