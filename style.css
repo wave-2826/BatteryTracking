@@ -9,7 +9,7 @@ p, label {
 body {
     display: flex;
     flex-direction: column;
-    background-color: slategray;
+    background-color: #708090;
     align-items: center;
     justify-content: center;
 }
