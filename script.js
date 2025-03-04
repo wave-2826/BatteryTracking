@@ -57,17 +57,25 @@ function jsonToCsv(jsonData) {
 }
 
 document.getElementById('download-csv').addEventListener('click', function() {
+    if (batteries.length === 0) {
+        alert('No data to download');
+        return;
+    }
     const csv = jsonToCsv(batteries);
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = csvurl;
+    a.href = url;
     a.download = 'batteries.csv';
     a.click();
     URL.revokeObjectURL(url);
     a.remove();
 });
 document.getElementById('download-json').addEventListener('click', function() {
+    if (batteries.length === 0) {
+        alert('No data to download');
+        return;
+    }
     const json = JSON.stringify(batteries, null, 2);
     const blob = new Blob([json], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
