@@ -14,7 +14,6 @@ form.addEventListener("submit", function(event){
     batteries.push(battery);
     storage.setItem('batteries', JSON.stringify(batteries));
     form.reset();
-    console.log(batteries);
     displayData();
 })
 function displayData(){
