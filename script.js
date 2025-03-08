@@ -108,3 +108,8 @@ document.getElementById('clear-data').addEventListener('click', function() {
         displayData();
     }
 });
+
+document.getElementById('date').valueAsDate = new Date();
+document.getElementById('fill-130').addEventListener('click', function() {
+    document.getElementById('chargelevel').value = 130;
+});
