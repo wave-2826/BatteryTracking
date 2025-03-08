@@ -15,6 +15,7 @@ form.addEventListener("submit", function(event){
     storage.setItem('batteries', JSON.stringify(batteries));
     form.reset();
     displayData();
+    document.getElementById('date').valueAsDate = new Date();
 })
 function displayData(){
     const display = document.querySelector('#battery-data-display');
@@ -109,6 +110,7 @@ document.getElementById('clear-data').addEventListener('click', function() {
 });
 
 document.getElementById('date').valueAsDate = new Date();
+
 document.getElementById('fill-130').addEventListener('click', function() {
     document.getElementById('chargelevel').value = 130;
 });
