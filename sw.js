@@ -5,34 +5,30 @@ self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
     cache.addAll([
-      '/',
-      '/index.html',
-      '/manifest.json',
-      '/script.js',
-      '/style.css',
+      '/BatteryTracking/',
+      '/BatteryTracking/index.html',
+      '/BatteryTracking/manifest.json',
+      '/BatteryTracking/script.js',
+      '/BatteryTracking/style.css',
     ]);
   })());
 });
 
 self.addEventListener('fetch', event => {
   event.respondWith((async () => {
-    const cache = await caches.open(CACHE_NAME);
+    try {
+      // Try to fetch the resource from the network.
+      const fetchResponse = await fetch(event.request);
 
-    // Get the resource from the cache.
-    const cachedResponse = await cache.match(event.request);
-    if (cachedResponse) {
-      return cachedResponse;
-    } else {
-        try {
-          // If the resource was not in the cache, try the network.
-          const fetchResponse = await fetch(event.request);
-
-          // Save the resource in the cache and return it.
-          cache.put(event.request, fetchResponse.clone());
-          return fetchResponse;
-        } catch (e) {
-          // The network failed.
-        }
+      // Save the resource in the cache and return it.
+      const cache = await caches.open(CACHE_NAME);
+      cache.put(event.request, fetchResponse.clone());
+      return fetchResponse;
+    } catch (e) {
+      // If the network request failed, try to get it from the cache.
+      const cache = await caches.open(CACHE_NAME);
+      const cachedResponse = await cache.match(event.request);
+      return cachedResponse || new Response('Network error occurred', { status: 408 });
     }
   })());
 });
