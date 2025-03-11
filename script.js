@@ -114,3 +114,19 @@ document.getElementById('date').valueAsDate = new Date();
 document.getElementById('fill-130').addEventListener('click', function() {
     document.getElementById('chargelevel').value = 130;
 });
+
+document.onscroll = function() {
+    if (window.scrollY > 0) {
+        document.getElementById('scroll-to-top').style.display = 'block';
+        document.getElementById('scroll-to-top').style.animation = 'fadeIn 0.3s';
+    } else {
+        document.getElementById('scroll-to-top').style.animation = 'fadeOut 0.3s';
+        setTimeout(() => {
+            document.getElementById('scroll-to-top').style.display = 'none';
+        }, 300);
+    }
+}
+
+document.getElementById('scroll-to-top').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});

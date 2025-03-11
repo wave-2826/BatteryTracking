@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div>
     <form>
         <label for="batteryid">Battery ID:</label>
         <input type="number" min="0" id="Batteryid" name="Batteryid" required><br><br>
@@ -40,18 +41,19 @@
         <input type="number" min="0"5[] step="any"id="rint" name="rint" required>
         <label for="rint">Ohms</label><br><br>
         <button type="submit">submit</button>
-        <hr> 
-        <button type="button" id="download-csv">Download CSV</button>
-        <button type="button" id="download-json">Download JSON</button>
-        <hr>
-        <label for="import-json" id="import-json-text">Import JSON</label>
-        <input type="file" id="import-json" accept="application/json"></input>
-        <hr>
-        <button type="button" id="clear-data">Clear data</button>
-        <hr>
-        <div id="battery-data-display"></div>
     </form>
-    <style></style>
+    <hr>
+    <button type="button" id="download-csv">Download CSV</button>
+    <button type="button" id="download-json">Download JSON</button>
+    <hr>
+    <label for="import-json" id="import-json-text">Import JSON</label>
+    <input type="file" id="import-json" accept="application/json"></input>
+    <hr>
+    <button type="button" id="clear-data">Clear data</button>
+    <hr>
+    <div id="battery-data-display"></div>
+    <button id="scroll-to-top">↑</button>
+    </div>
     <script src="script.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
