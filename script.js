@@ -127,3 +127,10 @@ document.onscroll = function() {
 document.getElementById('scroll-to-top').addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+function validateOhms(input) {
+    const value = input.value;
+    if (value.startsWith('.')) {
+        input.value = value.replace('.', '0.');
+    }
+}
