@@ -28,9 +28,6 @@ function displayData(){
             <p>In/Out: ${battery['in-out']}</p>
             <p>Status: ${battery.status}</p>
             <p>Charge Level: ${battery.chargelevel}</p>
-            <p>V0: ${battery.v0} @ 0 Amps</p>
-            <p>V1: ${battery.v1} @ 1 Amp</p>
-            <p>V2: ${battery.v2} @ 18 Amps</p>
             <p>Rint: ${battery.rint} Ohms</p>
             <hr>
         `;
