@@ -40,11 +40,12 @@ input[type="file"] {
 #scroll-to-top {
     position: fixed;
     bottom: 10px;
-    right: 10px;
+    right: 13px;
     background-color: #efefef;
     padding: 1px 5px;
     cursor: pointer;
     display: none;
+    border-radius: 25%;
 }
 
 @keyframes fadeIn {
